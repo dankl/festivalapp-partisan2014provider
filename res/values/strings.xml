@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PartySan2014Provider</string>
+    <string name="action_settings">Settings</string>
+    <string name="header">Festival App Provider</string>    
+	<string name="desc">The opened application is an extension for the festival application. Please install and/or start the festival application and chose the current provider under settings.</string>
+    
+</resources>
