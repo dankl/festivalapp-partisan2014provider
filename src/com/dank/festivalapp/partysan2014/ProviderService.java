@@ -114,6 +114,7 @@ public class ProviderService extends ProviderServiceBase {
 	
 		Document doc = Jsoup.parse(page, "UTF-8");
 
+		// get band description
 		Elements descElem =  doc.getElementsByClass("psoabilling_text");
 		if (descElem != null)
 		{
@@ -122,6 +123,7 @@ public class ProviderService extends ProviderServiceBase {
 			Log.w("desc", desc);
 		}
 
+		// get band logo
 		Elements logoElem =  doc.getElementsByClass("psoabilling_bandlogodetail");
 		if (logoElem != null)
 		{
@@ -133,6 +135,7 @@ public class ProviderService extends ProviderServiceBase {
 				band.setLogoFile(logoFileName);
 		}
 
+		// get band picture
 		Elements fotoElem =  doc.getElementsByClass("psoabilling_photo");
 		if (fotoElem != null)
 		{
@@ -150,6 +153,7 @@ public class ProviderService extends ProviderServiceBase {
 		{
 			Element ul = details.select("ul").first();
 			
+			// get band url
 			if (ul.select("a") != null)
 				band.setUrl( ul.select("a").attr("href") );
 			
@@ -162,7 +166,8 @@ public class ProviderService extends ProviderServiceBase {
 					String h = li.text();
 					String d = "Updatedatum:";
 					String f = "Stil:";
-
+					
+					// get added date
 					if (h.contains(d))
 					{
 						try {
@@ -172,6 +177,8 @@ public class ProviderService extends ProviderServiceBase {
 							e.printStackTrace();
 						}
 					}
+					
+					// get flavors
 					else if (h.contains(f))
 					{
 						h = h.replace(f, "").trim();				
